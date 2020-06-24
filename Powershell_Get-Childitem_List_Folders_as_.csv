@@ -1,0 +1,3 @@
+Get-ChildItem -Path P:\ -Filter "*15**" -Recurse -Force -EA 0 | select FullName,CreationTime,LastAccessTime,LastWriteTime | Export-Csv -Path C:\...\.csv  
+
+(-Filter = for specific search in directory)
