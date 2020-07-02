@@ -1,0 +1,6 @@
+Get-ChildItem -Path P:\ -Recurse -ErrorAction SilentlyContinue | 
+ForEach-Object { Get-ChildItem $_.FullName,Name -Recurse | 
+select Name, *time,FullName | 
+Sort-Object -Property LastAccessTime -Descending | 
+Select-Object -First 1 } |
+Export-Csv -Path C:\Users\zimmer\Desktop\fileneu2.csv
