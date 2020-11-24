@@ -1,0 +1,30 @@
+# Mit HPing3
+
+hping3 --icmp --flood 192.168.2.123 -a 192.168.2.123 (self flooding) -d 120 (gets hardcore!)
+
+hping3 -c 10000 -s 1515 -d 445 -S -a 192.168.2.123 192.168.2.123 --flood
+(specific port) 
+
+hping3 -c 10000 -s 1515 -d 445 -S --rand-source 192.168.2.123 --flood
+(like upper example, only with random source IP)
+
+ICMP Packets Customisation:
+
+    hping3 — icmp /-1 Target (Simple ICMP Echo Request)
+    hping3 — icmp -c 8 -V Target (Packets Count and Verbose)
+    hping3 — icmp -c 4 -d 300 Target (data is send with 300 bytes of data)
+    hping3 — icmp -c 4 -t 56 Target (set TTL value of 56)
+    hping3 — icmp -t 56 -c 5 — mtu 8 -d 300 -V — tos — frag 32 Target
+
+Customizing SYN Packet:
+
+    hping3 -S -p 80 Target (Sending SYN packet on port 80)
+    hping3 -S -p 80 -s 1234 –k Target (Sending SYN packet on port 80 from port 1234)
+    hping3 -S -p ++21 Target (Incrementing Destination Port by 1 after each sent packet)
+
+Setting Different Flags:
+
+    hping3 -p 80 -s 1234 -F Target
+    hping3 -p 80 -s 1234 -A Target
+    hping3 -p 80 -s 1234 -FUP -d 200 Target
+    hping3 -p 80 -s 1234 -Y — mtu 8 Target
