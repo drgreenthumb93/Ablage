@@ -1,3 +1,3 @@
 # Ablage
 
-free codes for everyone!
+Free codes i've collected over time. Feel free to use and share.
