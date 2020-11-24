@@ -1,0 +1,1 @@
+$ openssl rand -base64 24 (24 kann auch durch eine beliebige Zahl ausgetauscht werden, je mehr desto besser!)
