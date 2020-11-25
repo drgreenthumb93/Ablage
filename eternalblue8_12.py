@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# This file has no update anymore. Please see https://github.com/worawit/MS17-010
+# No updates for this version!
 from impacket import smb, ntlm
 from struct import pack
 import sys
