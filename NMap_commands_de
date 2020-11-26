@@ -1,0 +1,121 @@
+###Basic Scanning Techniques###
+
+Scan für einzelnes Ziel —> nmap [target]
+Scanne mehrere Ziele —> nmap [target1,target2,etc]
+Scanne eine Liste von Zielen —-> nmap -iL [list.txt]
+Scanne eine Range —-> nmap [range of IP addresses]
+Scanne das gesamte Subnetz —-> nmap [IP address/cdir]
+Random-Scan —-> nmap -iR [number]
+Schließe Ziele von Scan aus —> nmap [targets] –exclude [targets]
+Schließe Ziele anhand von Liste aus —> nmap [targets] –excludefile [list.txt]
+Aggressiver Scan —> nmap -A [target]
+IPv6 Scan —> nmap -6 [target]
+Discovery Options
+Nur Ping-Scan —> nmap -sP [target]
+Nicht Pingen  —> nmap -PN [target]
+TCP SYN Ping —> nmap -PS [target]
+TCP ACK ping —-> nmap -PA [target]
+UDP ping —-> nmap -PU [target]
+SCTP Init Ping —> nmap -PY [target]
+ICMP echo ping —-> nmap -PE [target]
+ICMP Timestamp ping —> nmap -PP [target]
+ICMP address mask ping —> nmap -PM [target]
+IP protocol ping —-> nmap -PO [target]
+ARP ping —> nmap -PR [target]
+Traceroute —> nmap –traceroute [target]
+Erzwinge reverse DNS-Auflösung —> nmap -R [target]
+Reverse DNS-Auflösung ausschalten —> nmap -n [target]
+Alternativer DNS lookup —> nmap –system-dns [target]
+DNS-Server manuell angeben —> nmap –dns-servers [servers] [target]
+Host Liste erstellen —-> nmap -sL [targets]
+
+###Advanced Scanning Options###
+
+TCP SYN Scan —> nmap -sS [target]
+TCP connect Scan —-> nmap -sT [target]
+UDP Scan —-> nmap -sU [target]
+TCP Null Scan —-> nmap -sN [target]
+TCP Fin Scan —> nmap -sF [target]
+Xmas scan —-> nmap -sX [target]
+TCP ACK Scan —> nmap -sA [target]
+Custom TCP Scan —-> nmap –scanflags [flags] [target]
+IP protocol Scan —-> nmap -sO [target]
+Sende rohe Ethernet Pakete —-> nmap –send-eth [target]
+Sende IP-Pakete —-> nmap –send-ip [target]
+Port Scanning Options
+Schneller Scan —> nmap -F [target]
+Spezifische Ports scannen —-> nmap -p [ports] [target]
+Ports nach Namen scannen —-> nmap -p [port name] [target]
+Ports nach Protokoll scannen —-> nmap -sU -sT -p U:[ports],T:[ports] [target]
+Scanne alle Ports  —-> nmap -p “*” [target]
+Scanne Top-Ports —–> nmap –top-ports [number] [target]
+Sequenzieller Port-Scan —-> nmap -r [target]
+Version Detection
+Betriebssystemerkennung —-> nmap -O [target]
+Submit TCP/IP Fingerprints —-> http://www.nmap.org/submit/
+Unbekanntes OS schätzen —-> nmap -O –osscan-guess [target]
+Dienstversionserkennung  —-> nmap -sV [target]
+Troubleshooting version scans —-> nmap -sV –version-trace [target]
+RPC-Scan —-> nmap -sR [target]
+Timing Options
+Timing Templates —-> nmap -T [0-5] [target]
+Paket-TTL angeben —-> nmap –ttl [time] [target]
+Minimum paralleler Verbindungen —-> nmap –min-parallelism [number] [target]
+Maximum paralleler Verbindungen —-> nmap –max-parallelism [number] [target]
+Minimum Hostgruppengröße—–> nmap –min-hostgroup [number] [targets]
+Maximum Hostgruppengröße —-> nmap –max-hostgroup [number] [targets]
+Maximum RTT timeout —–> nmap –initial-rtt-timeout [time] [target]
+Initial RTT timeout —-> nmap –max-rtt-timeout [TTL] [target]
+Maximale Anzahl der Versuche —-> nmap –max-retries [number] [target]
+Host timeout —-> nmap –host-timeout [time] [target]
+Minimum Scan Verzögerung —-> nmap –scan-delay [time] [target]
+Maximum Scan Verzögerung —-> nmap –max-scan-delay [time] [target]
+Minimale Paketrate —-> nmap –min-rate [number] [target]
+Maximale Paketrate —-> nmap –max-rate [number] [target]
+Defeat reset rate limits —-> nmap –defeat-rst-ratelimit [target]
+
+###Firewall Evasion Techniques###
+
+Fragmentiere Pakete —-> nmap -f [target]
+Speziellen MTU angeben —-> nmap –mtu [MTU] [target]
+Decoy benutzen —-> nmap -D RND: [number] [target]
+Idle Zombie Scan —> nmap -sI [zombie] [target]
+Manuellen Quellen-Port angeben —-> nmap –source-port [port] [target]
+Sende random Daten —-> nmap –data-length [size] [target]
+Hosts zufällig auswählen —-> nmap –randomize-hosts [target]
+MAC-Adresse spoofen —-> nmap –spoof-mac [MAC|0|vendor] [target]
+BADCHECKSUMS senden —-> nmap –badsum [target]
+Output Options
+Output als Textdatei speichern —-> nmap -oN [scan.txt] [target]
+Output als .XML speichern —> nmap -oX [scan.xml] [target]
+Output für grep —-> nmap -oG [scan.txt] [target]
+Alle unterstützten Dateitypen ausgeben —-> nmap -oA [path/filename] [target]
+Periodisch Statistiken anzeigen —-> nmap –stats-every [time] [target]
+133t Output —-> nmap -oS [scan.txt] [target]
+
+###Troubleshooting and debugging###
+
+Hilfe —> nmap -h (oder man nmap)
+NMap Version anzeigen  —-> nmap -V
+Verbose —-> nmap -v [target]
+Debugging —-> nmap -d [target]
+Portstatus Grund anzeigen —-> nmap –reason [target]
+Zeige nur offene Ports —-> nmap –open [target]
+Pakete verfolgen —> nmap –packet-trace [target]
+Host Verbindungen anzeigen —> nmap –iflist
+Spezielles Interface auswählen —> nmap -e [interface] [target]
+
+###Nmap Scripting Engine###
+
+Script ausführen —> nmap –script [script.nse] [target]
+Mehrere Scripts ausführen —-> nmap –script [expression] [target]
+Script-Kategorien —-> all, auth, default, discovery, external, intrusive, malware, safe, vuln
+Script nach Kategorie ausführen —-> nmap –script [category] [target]
+Mehrere Script-Kategorien ausführen —-> nmap –script [category1,category2, etc]
+Troubleshoot scripts —-> nmap –script [script] –script-trace [target]
+Scriptdatenbank updaten —-> nmap –script-updatedb
+Ndiff
+Zusammenführen mit Ndiff —-> ndiff [scan1.xml] [scan2.xml]
+Ndiff verbose —-> ndiff -v [scan1.xml] [scan2.xml]
+XML output mode —-> ndiff –xml [scan1.xm] [scan2.xml]
+
