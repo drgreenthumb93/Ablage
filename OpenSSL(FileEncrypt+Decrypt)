@@ -1,38 +1,38 @@
-## Symmetic encryption
+## Symmetrische Verschlüsselung
 
-For symmetic encryption, you can use the following:
+Für symmentrische Verschlüsselung kann das Folgende genutzt werden:
 
-To encrypt:
+Zum Verschlüsseln:
 
     openssl aes-256-cbc -salt -a -e -in plaintext.txt -out encrypted.txt
 
-To decrypt:
+Zum Entschlüsseln:
 
     openssl aes-256-cbc -salt -a -d -in encrypted.txt -out plaintext.txt
 
-## Asymmetric encryption
+## Asymmetrische Verschlüsselung
 
-For Asymmetric encryption you must first generate your private key and extract the public key.
+Für die asymmetrische Verschlüsselung muss vorher ein privater Schlüssel generiert und extrahiert werden.
 
     openssl genrsa -aes256 -out private.key 8912
     openssl rsa -in private.key -pubout -out public.key
 
-To encrypt:
+Zum Verschlüsseln:
 
     openssl rsautl -encrypt -pubin -inkey public.key -in plaintext.txt -out encrypted.txt
 
-To decrypt:
+Zum Entschlüsseln:
 
     openssl rsautl -decrypt -inkey private.key -in encrypted.txt -out plaintext.txt
 
-## Encripting files
+## Dateien verschlüsseln
 
-You can't directly encrypt a large file using `rsautl`. Instead, do the following:
+Eine größere Datei kann nicht einfach so mit "rsautl" verschlüsselt werden, stattdessen nutzt man folgende Befehle:
 
-- Generate a key using `openssl rand`, e.g. `openssl rand 32 -out keyfile`.
-- Encrypt the key file using `openssl rsautl`.
-- Encrypt the data using `openssl enc`, using the generated key from step 1.
-- Package the encrypted key file with the encrypted data. The recipient will need to decrypt the key with their private key, then decrypt the data with the resulting key.
+- Schlüssel generieren mit `openssl rand`, e.g. `openssl rand 32 -out keyfile`.
+- Keyfile verschlüsseln mit `openssl rsautl`.
+- Datei verschlüsseln mit `openssl enc`, mit Benutzung des Keys vom ersten Schritt
+- Verschlüsselte Keyfile mit verschl. Daten verpacken. Der Empfänger muss mit seinem privaten Schlüssel die Datei entschlüsseln, danach mit dem entschlüsselten Key die Datei entschlüsseln.
 
 Ultimate solution for safe and high secured encode anyone file in OpenSSL and command-line:
 
