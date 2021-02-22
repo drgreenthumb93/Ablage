@@ -12,44 +12,6 @@
   Remote Desktop and export the resutls in a text file or email the results. You are able to get the
   information from two remote systems at the same time and compare outcome.
 
-.RELATED LINKS
-  https://www.sconstantinou.com
-
-.NOTES
-  Version:      1.5.1
-
-  Updated:      05-09-2018        - Fixed typo error.
-
-  Updated:      23-08-2018        - Added ability to retrieve information from 2 computers
-                                  - Added comparison of results
-                                  - Code improvements and optimization
-                                  - Added basic error control
-                                  - Remove filtering of information
-                                  - UI Improvements
-
-  Updated:      13-03-2018        - Added ability to email results as attachment
-                                  - Added date and time for the results
-                                  - Updated description
-
-  Updated:      02-03-2018        - Added ability to export result in text file
-                                  - Added TCP Connection information
-                                  - Added Title for each information retrieval
-
-  Updated:      25-02-2018        - Added Fan Information
-                                  - Added Battery Information
-                                  - Added Portable Battery Information
-                                  - Added Network Settings Information
-                                  - Added ping connection test of remote system
-                                  - Added Remote Desktop connection to the machine.
-                                  - Warning for the use of Win32_Product class
-                                  - Added option for Win32Reg_AddRemovePrograms class
-                                  - Added visibility to Taskbar
-                                  - Added Help information
-
-  Release Date: 22-02-2018
-
-  Author: Stephanos Constantinou
-
 .EXAMPLE
   Run the Get-SysInfo script to retrieve the information.
   Get-SysInfo.ps1
